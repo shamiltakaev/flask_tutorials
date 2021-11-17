@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}" type="text/css">
+
+<form action="" method="post" novalidate>
+  {{form.hidden_tag() }}
+  <p>
+      {{ form.description.label }}
+      {{ form.description(size=32, id="") }}
+      {% for error in form.description.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+  </p>
+
+  <p>
+      {{ form.modules.label }}
+      {{ form.modules(size=2, id="moduleField")}}
+      {% for error in form.modules.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+  </p>
+
+  <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% for task in tasks %}
+        <p>
+            {% for item in task.split("\\n") %}
+                {{ item }}
+                <br>
+            {% endfor %} 
+        </p>
+        <hr style="border: 2.5px solid #eeeeee;border-radius: 5px;" />
+    {% endfor %}
+    
+{% endblock %}
